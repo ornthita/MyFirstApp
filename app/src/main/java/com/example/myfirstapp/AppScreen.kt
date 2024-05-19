@@ -87,7 +87,4 @@ fun AppScreen(appViewModel: AppViewModel = viewModel()) {
             }
         }
     }
-
-
-
 }

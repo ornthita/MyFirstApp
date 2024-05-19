@@ -1,8 +1,5 @@
 package com.example.myfirstapp
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,10 +15,10 @@ class AppViewModel: ViewModel() {
 
     fun updateChar(i: Int) {
         currentIndex += i
-        if (currentIndex < firstIndex) {
-            currentIndex = lastIndex
-        } else if (currentIndex > lastIndex) {
-            currentIndex = firstIndex
+        if (currentIndex < 0) {
+            currentIndex = letter.lastIndex
+        } else if (currentIndex > letter.lastIndex) {
+            currentIndex = 0
         }
         _uiState.update { currentState ->
             currentState.copy(
